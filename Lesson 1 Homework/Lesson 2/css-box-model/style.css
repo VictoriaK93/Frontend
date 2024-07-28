@@ -1,0 +1,29 @@
+.red-box{
+    background-color: red;
+    width: 250px;
+    height: 250px;
+    border: 20px solid blue;
+    padding: 30px;
+    margin: 50px;
+}
+.blue-box{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    /* граница слева */
+    margin-left: 50px;
+    /* граница справа */
+    margin-right: 40px;
+    /* граница сверху */
+    margin-top: 30px;
+    /* граница снизу */
+    margin-bottom: 20px;
+}
+.green-box{
+    width: 200px;
+    height: 150px;
+    background-color: orange;
+    /* Сокращенная запись  */
+    /*  верх .право .низ. лево- по часовой стрелке действует и для margin */
+    padding: 50px 40px 30px 20px;
+}
