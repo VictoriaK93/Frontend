@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Frog tinder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Frog tinder</h1>
+    <p>Найди свой краш!</p>
+    
+    <!-- Форма опроса -->
+    <form action="greetings.html" method="POST">
+        <!-- Релиз 1: Первая часть опроса -->
+        <fieldset>
+            <legend>I am:</legend>
+            <input type="radio" id="man" name="identity" value="man">
+            <label for="man">Man</label><br>
+
+            <input type="radio" id="woman" name="identity" value="woman">
+            <label for="woman">Woman</label><br>
+
+            <input type="radio" id="frog" name="identity" value="frog">
+            <label for="frog">Frog</label>
+        </fieldset>
+        <br>
+
+        <!-- Релиз 2: Вторая часть опроса -->
+        <fieldset>
+            <legend>Interested in:</legend>
+            <input type="radio" id="interested_man" name="interest" value="man">
+            <label for="interested_man">Man</label><br>
+
+            <input type="radio" id="interested_woman" name="interest" value="woman">
+            <label for="interested_woman">Woman</label><br>
+
+            <input type="radio" id="eat_bugs" name="interest" value="eat_bugs">
+            <label for="eat_bugs">Eat bugs</label>
+        </fieldset>
+        <br>
+
+        <input type="submit" value="Отправить">
+    </form>
+</body>
+</html>
