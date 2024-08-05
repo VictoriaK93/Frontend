@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Письмо Санте</title>
+</head>
+<body>
+    <h1>Письмо Санте регистрация</h1>
+    <form action="greetings.html" method="POST">
+        <label for="login">Логин:</label><br>
+        <input type="text" id="login" name="login" placeholder="Введите логин"><br><br>
+
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password" placeholder="Введите пароль"><br><br>
+
+        <label for="fio">ФИО:</label><br>
+        <input type="text" id="fio" name="fio" placeholder="Введите ФИО"><br><br>
+
+        <label>Пол:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Мужской</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Женский</label><br><br>
+
+        <label for="dob">Дата рождения:</label><br>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <!-- Дополнительные поля -->
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Введите email"><br><br>
+
+        <label for="phone">Телефон:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона"><br><br>
+
+        <label for="country">Страна:</label><br>
+        <select id="country" name="country">
+            <option value="ru">Россия</option>
+            <option value="us">США</option>
+            <option value="cn">Китай</option>
+        </select><br><br>
+
+        <label for="bio">Краткая биография:</label><br>
+        <textarea id="bio" name="bio" placeholder="Расскажите немного о себе"></textarea><br><br>
+
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+</body>
+</html>
