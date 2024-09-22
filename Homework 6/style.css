@@ -1,0 +1,40 @@
+/* Устанавливаем базовые стили для страницы */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container {
+    display: flex;
+    width: 100vw;
+    height: 300px;
+  }
+  
+  /* Общие стили для всех блоков */
+  .block {
+    height: 300px;
+    flex: 1; /* Каждый блок будет занимать равную долю по ширине */
+  }
+  
+  /* Индивидуальные цвета блоков */
+  .block_red {
+    background-color: red;
+  }
+  
+  .block_green {
+    background-color: green;
+  }
+  
+  .block_blue {
+    background-color: blue;
+  }
+  
+  .block_yellow {
+    background-color: yellow;
+  }
+  
+  .block_black {
+    background-color: black;
+  }

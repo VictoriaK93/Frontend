@@ -1,0 +1,15 @@
+.container{
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 25px;
+    flex-wrap: wrap;
+
+}
+.item{
+    width: 80px;
+    height: 80px;
+    background-color: beige;
+    border: 2px solid brown;
+}

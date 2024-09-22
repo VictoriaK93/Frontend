@@ -1,0 +1,98 @@
+/* Сброс стилей и общие настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Основной контейнер страницы */
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+  }
+  
+  /* Фиксированные элементы (header, nav, footer) */
+  .header {
+    background-color: #a4d4ff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  
+  .nav {
+    background-color: #ffcccc;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  
+  .footer {
+    background-color: #ccffe6;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  
+  /* Основное содержимое */
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  /* Блоки внутри основного контента */
+  .section {
+    background-color: #f9ffa5;
+    flex: 2;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  
+  .aside {
+    background-color: #fff6a5;
+    flex: 1;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  
+  .article {
+    background-color: #e6d4ff;
+    flex-basis: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  
+ /* Адаптация для маленьких экранов */
+@media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column;
+    }
+  
+    .section, .aside, .article {
+      flex-basis: auto;
+    }
+  }
