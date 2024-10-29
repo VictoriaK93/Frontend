@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="./style.css">
+    <title>ToDo</title>
+</head>
+<body>
+<h1 class="title">ToDo</h1>
+<main class="todo-list">
+    <div class="actions">
+        <input class="task-input" type="text"/>
+        <button class="btn">Создать</button>
+    </div>
+    <div class="status">
+      <button class="btn" id="all">все</button>
+      <button class="btn" id="completed">выполненные</button>
+      <button class="btn" id="uncompleted">невыполненные</button>
+    </div>
+    <ul class="list">
+        <li class="list-item list-item_done">Сделать домашку</li>
+        <li class="list-item" id="second-item">Повторить</li>
+        <li class="list-item">Купить молоко</li>
+      
+    </ul>
+</div>
+<script>
+    
+let tasks = [];
+const taskInput = document.querySelector('.task-input');
+const addButton = document.querySelector('.actions .btn');
+const taskList = document.querySelector('.list');
+const allButton = document.getElementById('all');
+const completedButton = document.getElementById('completed');
+const uncompletedButton = document.getElementById('uncompleted');
+
+
+function addTask() {
+    const taskText = taskInput.value.trim();
+    if (taskText) {
+        tasks.push({ text: taskText, isCompleted: false });
+        taskInput.value = '';  
+        renderTasks();  
+    }
+}
+
+
+function renderTasks(filter = 'all') {
+    taskList.innerHTML = ''; 
+
+    let filteredTasks = tasks;
+
+    if (filter === 'completed') {
+        filteredTasks = tasks.filter(task => task.isCompleted);
+    } else if (filter === 'uncompleted') {
+        filteredTasks = tasks.filter(task => !task.isCompleted);
+    }
+
+    filteredTasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.classList.add('list-item');
+        if (task.isCompleted) {
+            li.classList.add('list-item_done');
+        }
+        li.textContent = task.text;
+
+        
+        li.addEventListener('click', () => toggleTaskCompletion(index));
+
+        taskList.appendChild(li);
+    });
+}
+
+
+function toggleTaskCompletion(index) {
+    tasks[index].isCompleted = !tasks[index].isCompleted;
+    renderTasks();  
+}
+
+
+
+allButton.addEventListener('click', () => renderTasks('all'));
+completedButton.addEventListener('click', () => renderTasks('completed'));
+uncompletedButton.addEventListener('click', () => renderTasks('uncompleted'));
+
+
+addButton.addEventListener('click', addTask);
+
+
+taskInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+});
+
+
+renderTasks();
+</script>
+
+</main>
+</body>
+</html>
