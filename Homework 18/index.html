@@ -2,50 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="./style.css">
+    <title>ToDo</title>
 </head>
 <body>
-    <ul id="task-list"></ul>
+<h1 class="title">ToDo</h1>
+<main class="todo-list">
+    <div class="actions">
+        <input class="task-input" type="text"/>
+        <button class="btn">Создать</button>
+    </div>
+    <div class="status">
+      <button class="btn" id="all">все</button>
+      <button class="btn" id="completed">выполненные</button>
+      <button class="btn" id="uncompleted">невыполненные</button>
+    </div>
+    <ul class="list" id="task-list"></ul>
+</div>
+<script>
+    let tasks = [];
+    const taskInput = document.querySelector('.task-input');
+    const addButton = document.querySelector('.actions .btn');
+    const taskList = document.getElementById('task-list');
+    const allButton = document.getElementById('all');
+    const completedButton = document.getElementById('completed');
+    const uncompletedButton = document.getElementById('uncompleted');
 
-    <script>
-        async function retrieveTasks() {
-        
-    const url = 'https://jsonplaceholder.typicode.com/todos';
-    const response = await fetch(url);
+    async function fetchTasks() {
+        const url = 'https://jsonplaceholder.typicode.com/todos';
+        const response = await fetch(url);
 
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
-    }
-
-    const data = await response.json();
-    return data.slice(0, 15); // Обрезаем до первых 15
-}
-
-async function retrieveTasks() {
-    try {
-        const tasks = await fetchTasks();
-        renderTasks(tasks);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-}
-
-        
-
-        function renderTasks(tasks) {
-            const taskList = document.getElementById('task-list');
-            taskList.innerHTML = ''; // Очистить лист перед добавлением новых заданий
-
-            tasks.forEach(task => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${task.title} - ${task.completed ? 'Completed' : 'Incomplete'}`;
-                taskList.appendChild(listItem);
-            });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
 
-        retrieveTasks(); // Вызывается функция при загрузке скрипта, что инициирует процесс получения и отображения задач.
-    </script>
+        const data = await response.json();
+        return data.slice(0, 15); // Обрезаем до первых 15
+    }
+
+    async function retrieveTasks() {
+        try {
+            tasks = await fetchTasks();
+            renderTasks(tasks);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    function renderTasks(tasks) {
+        taskList.innerHTML = ''; // Очистить лист перед добавлением новых заданий
+
+        tasks.forEach(task => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${task.title} - ${task.completed ? 'Completed' : 'Incomplete'}`;
+            taskList.appendChild(listItem);
+        });
+    }
+
+    retrieveTasks(); // Вызывается функция при загрузке скрипта, что инициирует процесс получения и отображения задач.
+</script>
+</main>
 </body>
 </html>
 
+      
